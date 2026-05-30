@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  --font-serif: "Amiri", Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+/* Custom styles for high-fidelity widgets */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Glassmorphism subtle layout helper */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.dark .glass-panel {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(51, 65, 85, 0.8);
+}
+
+/* Global Dark Mode Overrides for pixel-perfect adaptivity across all asrama views */
+.dark {
+  color-scheme: dark;
+}
+
+.dark body,
+.dark #root,
+.dark .min-h-screen {
+  background-color: #0b0f19 !important; /* Premium deep blue-slate canvas */
+  color: #f1f5f9;
+}
+
+/* Cards & containers background color adaptation */
+.dark .bg-white,
+.dark aside[id="sidebar"],
+.dark header[id="top-header"],
+.dark .bg-white.border {
+  background-color: #0f172a !important; /* Obsidian slate-900 */
+  color: #f8fafc;
+}
+
+/* Light / subtle neutral backgrounds */
+.dark .bg-slate-50,
+.dark .bg-slate-100/50,
+.dark .bg-slate-100/70,
+.dark .bg-slate-100/10,
+.dark .bg-\[\#f8fafc\],
+.dark .bg-gray-50,
+.dark .bg-gray-100 {
+  background-color: #1e293b !important; /* slate-800 */
+}
+
+/* Specific Sidebar inactive items hover and Active item fallback */
+.dark .hover\:bg-slate-50:hover, 
+.dark .hover\:bg-gray-50:hover,
+.dark .hover\:bg-slate-100:hover {
+  background-color: #1e293b !important;
+}
+
+.dark .bg-slate-100 {
+  background-color: #1e293b !important;
+}
+
+/* Text overrides - high-contrast titles & readable body, subtexts */
+.dark .text-slate-900,
+.dark .text-slate-800,
+.dark .text-gray-950,
+.dark .text-gray-900,
+.dark .text-gray-800 {
+  color: #f8fafc !important; /* High contrast white-slate */
+}
+
+.dark .text-slate-700,
+.dark .text-slate-650,
+.dark .text-gray-700 {
+  color: #e2e8f0 !important; /* Medium light body */
+}
+
+.dark .text-slate-500,
+.dark .text-slate-400,
+.dark .text-gray-500,
+.dark .text-gray-400 {
+  color: #94a3b8 !important; /* Soft muted slate */
+}
+
+/* Tables visual improvements in dark mode */
+.dark table th {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+}
+
+.dark table tr {
+  border-bottom-color: #1e293b !important;
+}
+
+.dark table tr:hover {
+  background-color: #151f32 !important;
+}
+
+/* Border overrides */
+.dark .border-slate-200,
+.dark .border-slate-150,
+.dark .border-slate-100,
+.dark .border-gray-200,
+.dark .border-gray-100,
+.dark .border-slate-300 {
+  border-color: #1e293b !important; /* slate-800 boundary lines */
+}
+
+/* Inputs, drop-downs and textboxes */
+.dark input,
+.dark select,
+.dark textarea {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #f8fafc !important;
+}
+
+.dark input::placeholder {
+  color: #64748b !important;
+}
+
+.dark select option {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+}
+
+/* Chart Tooltips Recharts overlay custom styling */
+.dark .recharts-default-tooltip {
+  background-color: #0f172a !important;
+  border-color: #334155 !important;
+  color: #f8fafc !important;
+}

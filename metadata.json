@@ -1,0 +1,6 @@
+{
+  "name": "Rumah Tahfidz",
+  "description": "Sistem Informasi Terintegrasi Pembelajaran Tahfidz, Keuangan, dan Mutaba'ah Ibadah Santri",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
