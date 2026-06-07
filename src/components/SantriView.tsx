@@ -23,7 +23,8 @@ import {
   Trash,
   Sliders,
   Sparkles,
-  Brain
+  Brain,
+  QrCode
 } from 'lucide-react';
 import {
   ResponsiveContainer,
@@ -36,6 +37,7 @@ import {
 } from 'recharts';
 import { Santri, Halaqah, SppStatus, Gender } from '../types';
 import AttendanceHistoryModal from './AttendanceHistoryModal';
+import StudentQRCodeCardModal from './StudentQRCodeCardModal';
 
 interface SantriViewProps {
   santriList: Santri[];
@@ -61,6 +63,8 @@ export default function SantriView({
   const [isAddOpen, setIsAddOpen] = useState(false);
   const [selectedSantriForHistory, setSelectedSantriForHistory] = useState<Santri | null>(null);
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
+  const [selectedSantriForQR, setSelectedSantriForQR] = useState<Santri | null>(null);
+  const [isQROpen, setIsQROpen] = useState(false);
 
   // Sub-tabs for student directory vs proficiency visualization
   const [activeSubTab, setActiveSubTab] = useState<'daftar' | 'progres'>('daftar');
@@ -494,6 +498,18 @@ export default function SantriView({
                           {/* Quick incremental tools & Delete */}
                           <td className="p-4">
                             <div className="flex items-center gap-2 justify-center">
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setSelectedSantriForQR(santri);
+                                  setIsQROpen(true);
+                                }}
+                                className="p-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 rounded-sm text-[10px] font-bold flex items-center gap-1 border border-emerald-200 transition cursor-pointer"
+                                title="Generate & Cetak Kartu QR Santri"
+                              >
+                                <QrCode className="w-3.5 h-3.5 text-emerald-600" />
+                                <span>Kartu QR</span>
+                              </button>
                               <button
                                 type="button"
                                 onClick={() => {
@@ -1015,6 +1031,15 @@ export default function SantriView({
         onClose={() => {
           setIsHistoryOpen(false);
           setSelectedSantriForHistory(null);
+        }}
+      />
+
+      <StudentQRCodeCardModal
+        santri={selectedSantriForQR}
+        isOpen={isQROpen}
+        onClose={() => {
+          setIsQROpen(false);
+          setSelectedSantriForQR(null);
         }}
       />
     </div>
